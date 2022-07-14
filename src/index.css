@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@media (prefers-color-scheme: dark) {
+  body, textarea, button {
+    color: #aaa;
+    background: #000;
+  }
+  button, textarea {
+    border: 1pt solid #777;
+    border-radius: 2pt;
+  }
+}
+
