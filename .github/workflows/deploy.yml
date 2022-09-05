@@ -1,0 +1,26 @@
+name: deploy
+on:
+  push:
+    branches:
+      - 'master'
+jobs:
+  build:
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v1
+        with:
+          path: 'build'
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.output.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v1
