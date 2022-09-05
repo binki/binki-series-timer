@@ -2,7 +2,6 @@ import React, {
   useEffect,
   useState,
 } from 'react';
-import TimerEntry from './TimerEntry';
 import TimerEntryCollection from './TimerEntryCollection';
 
 // Parses the data into TimerEntry and then mounts a component which consumes that.
@@ -65,7 +64,7 @@ function RunEntries(props:{
     return () => {
       cancelAnimationFrame(requestId);
     };
-  });
+  }, [clock, props.entries, props.runKey]);
   if (clock === undefined) return <div/>;
   if (clock.entryIndex >= props.entries.length) return <div>Done!</div>;
   const diff = clock.current - clock.initial;

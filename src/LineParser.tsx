@@ -7,7 +7,7 @@ export default class LineParser {
   next(delimeterRegExp:RegExp) {
     const lastLine = this.line;
     const delimiterIndex = lastLine.search(delimeterRegExp);
-    if (delimiterIndex == -1) {
+    if (delimiterIndex === -1) {
       this.line = '';
       return lastLine;
     }
