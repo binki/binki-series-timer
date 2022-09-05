@@ -23,7 +23,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: ${{ steps.deployment.output.page_url }}
+      url: ${{ steps.deploy.output.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/deploy-pages@v1
