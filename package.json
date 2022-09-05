@@ -1,5 +1,6 @@
 {
   "name": "binki-series-timer",
+  "homepage": "https://binki.github.io/binki-series-timer/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -17,6 +18,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "deploy": "num run buld && gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
