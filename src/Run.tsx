@@ -68,12 +68,17 @@ function RunEntries(props:{
   if (clock === undefined) return <div/>;
   if (clock.entryIndex >= props.entries.length) return <div>Done!</div>;
   const diff = clock.current - clock.initial;
-  const duration = props.entries.get(clock.entryIndex).duration;
+  const entry = props.entries.get(clock.entryIndex);
+  const duration = entry.duration;
+  const colorCss = entry.color === undefined ? {} : {
+    color: entry.color,
+  };
   return (
     <div style={{
       textAlign: 'center',
       display: 'flex',
       flexDirection: 'column',
+      ...colorCss,
     }}>
       <div style={{
         fontSize: '25vmin',
